@@ -77,7 +77,7 @@ Vercel → **Settings → Environment Variables** (entorno *Production* y, si se
 
 | Variable | Ejemplo | Notas |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | `https://www.tartagalgo.com.ar` | Obligatoria en producción (el build falla sin ella cuando `VERCEL_ENV=production`). |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.tartagalgo.com.ar` | Recomendada. Si falta, se usa el dominio de producción de Vercel (`VERCEL_PROJECT_PRODUCTION_URL`, ej. `tgterminado.vercel.app`) con una advertencia. Definirla al tener dominio propio. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | `hola@tudominio.com.ar` | Opcional. Si falta, se muestra “configuración pendiente”. |
 | `NEXT_PUBLIC_CONTACT_WHATSAPP` | `5493873000000` | Opcional. Solo dígitos. |
 | `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES` | `false` | Poner `false` cuando haya negocios reales. |

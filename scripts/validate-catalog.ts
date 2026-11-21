@@ -28,8 +28,15 @@ if (demos > 0) {
   );
 }
 
-if (process.env.VERCEL_ENV === "production" && !siteConfig.hasConfiguredUrl) {
-  errors.push({ file: ".env", message: "NEXT_PUBLIC_SITE_URL no está configurada para producción" });
+if (process.env.VERCEL_ENV === "production") {
+  if (!siteConfig.hasConfiguredUrl) {
+    errors.push({ file: ".env", message: "NEXT_PUBLIC_SITE_URL no está configurada para producción" });
+  } else if (!siteConfig.hasExplicitUrl) {
+    warnings.push({
+      file: ".env",
+      message: `Usando el dominio de Vercel (${siteConfig.url}) como URL canónica. Definí NEXT_PUBLIC_SITE_URL al tener dominio propio.`,
+    });
+  }
 }
 
 if (warnings.length > 0) {

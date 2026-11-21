@@ -64,7 +64,7 @@ node scripts/generate-brand-assets.mjs
 | Síntoma | Causa probable |
 | --- | --- |
 | El build falla en Vercel con “Catálogo inválido” | Error en un JSON: correr `npm run catalog:validate` localmente. |
-| “NEXT_PUBLIC_SITE_URL no está configurada” | Falta la variable en Vercel (Production). |
+| “NEXT_PUBLIC_SITE_URL no está configurada” | Falta la variable y Vercel no informó un dominio de producción: definirla en Vercel (Production). |
 | Un negocio no aparece | `status` distinto de `published`, o es `demo` con demos desactivados. |
 | Cambié una variable y no se refleja | Las variables se incrustan en el build: hacer *Redeploy*. |
 | Errores “Refused to execute inline script” | Un script inline nuevo sin hash: revisar que el build ejecute `postbuild-csp.mjs`. |

@@ -26,7 +26,14 @@ function normalizeSiteUrl(value: string | null): string {
 }
 
 /* Las variables NEXT_PUBLIC_* deben leerse con acceso literal para que Next.js las incruste. */
-const envSiteUrl = readPublicEnv(process.env.NEXT_PUBLIC_SITE_URL);
+const explicitSiteUrl = readPublicEnv(process.env.NEXT_PUBLIC_SITE_URL);
+/**
+ * Respaldo en Vercel: dominio de producción del proyecto (variable de sistema disponible en el build,
+ * ej. "tgterminado.vercel.app"). Permite que el primer despliegue funcione sin configuración;
+ * al tener dominio propio, definir NEXT_PUBLIC_SITE_URL.
+ */
+const vercelProductionHost = readPublicEnv(process.env.VERCEL_PROJECT_PRODUCTION_URL);
+const envSiteUrl = explicitSiteUrl ?? (vercelProductionHost ? `https://${vercelProductionHost}` : null);
 const envContactEmail = readPublicEnv(process.env.NEXT_PUBLIC_CONTACT_EMAIL);
 const envContactWhatsapp = readPublicEnv(process.env.NEXT_PUBLIC_CONTACT_WHATSAPP);
 const envShowDemo = readPublicEnv(process.env.NEXT_PUBLIC_SHOW_DEMO_BUSINESSES);
@@ -37,10 +44,12 @@ export const siteConfig = {
   tagline: "Tu ciudad, conectada.",
   description:
     "Directorio digital de comercios, profesionales, servicios y emprendimientos de Tartagal, Salta. Encontrá negocios locales, sus horarios, contacto y sitios web.",
-  /** URL canónica sin barra final. Configurar NEXT_PUBLIC_SITE_URL en producción. */
+  /** URL canónica sin barra final. NEXT_PUBLIC_SITE_URL o, en Vercel, el dominio de producción del proyecto. */
   url: normalizeSiteUrl(envSiteUrl),
-  /** true si la URL base fue configurada explícitamente. */
+  /** true si hay una URL base real (explícita o provista por Vercel). */
   hasConfiguredUrl: envSiteUrl !== null,
+  /** true solo si se definió NEXT_PUBLIC_SITE_URL. */
+  hasExplicitUrl: explicitSiteUrl !== null,
   locale: "es_AR",
   language: "es-AR",
 

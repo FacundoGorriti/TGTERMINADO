@@ -63,7 +63,7 @@ Todo lo personalizable está en [`src/data/site-config.ts`](src/data/site-config
 
 | Variable | Uso |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | URL canónica (obligatoria en producción) |
+| `NEXT_PUBLIC_SITE_URL` | URL canónica (en Vercel, si falta, se usa el dominio `*.vercel.app` del proyecto) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Correo de contacto público (opcional) |
 | `NEXT_PUBLIC_CONTACT_WHATSAPP` | WhatsApp público, solo dígitos (opcional) |
 | `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES` | `true`/`false`: mostrar los negocios ficticios de demostración |
