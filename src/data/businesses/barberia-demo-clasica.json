@@ -1,0 +1,48 @@
+{
+  "id": "demo-0009",
+  "slug": "barberia-demo-clasica",
+  "name": "Barbería Demo Clásica",
+  "categoryId": "belleza-y-cuidado-personal",
+  "subcategoryId": "barberias",
+  "shortDescription": "Cortes clásicos y modernos, perfilado de barba y afeitado.",
+  "description": "Barbería de demostración para ilustrar la ficha del rubro belleza. Este es un registro FICTICIO de demostración: no representa a un comercio real.",
+  "logo": "/images/demo/barberia-demo-clasica-logo.svg",
+  "coverImage": "/images/demo/barberia-demo-clasica-cover.svg",
+  "gallery": [],
+  "city": "Tartagal",
+  "province": "Salta",
+  "websiteUrl": "https://example.com/",
+  "openingHours": [
+    {
+      "days": [
+        "tu",
+        "we",
+        "th",
+        "fr",
+        "sa"
+      ],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  ],
+  "features": [
+    "Atención por orden de llegada"
+  ],
+  "keywords": [
+    "corte",
+    "pelo",
+    "barba"
+  ],
+  "attributes": {
+    "services": [
+      "Corte",
+      "Barba",
+      "Afeitado tradicional"
+    ]
+  },
+  "featured": false,
+  "publishedAt": "2026-11-01",
+  "updatedAt": "2026-11-01",
+  "status": "published",
+  "demo": true
+}

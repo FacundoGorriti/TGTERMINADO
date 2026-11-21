@@ -1,0 +1,74 @@
+{
+  "id": "demo-0002",
+  "slug": "cafe-demo-la-plaza",
+  "name": "Café Demo La Plaza",
+  "categoryId": "gastronomia",
+  "subcategoryId": "cafeterias",
+  "shortDescription": "Cafetería de especialidad con pastelería artesanal y desayunos.",
+  "description": "Cafetería de demostración con café de especialidad, medialunas y opciones sin TACC. Muestra cómo se presentan el tipo de cocina, los servicios y el enlace al menú. Este es un registro FICTICIO de demostración: no representa a un comercio real.",
+  "logo": "/images/demo/cafe-demo-la-plaza-logo.svg",
+  "coverImage": "/images/demo/cafe-demo-la-plaza-cover.svg",
+  "gallery": [
+    {
+      "src": "/images/demo/galeria-3.svg",
+      "alt": "Imagen de ejemplo de la barra de café"
+    },
+    {
+      "src": "/images/demo/galeria-1.svg",
+      "alt": "Imagen de ejemplo del salón"
+    }
+  ],
+  "city": "Tartagal",
+  "province": "Salta",
+  "websiteUrl": "https://example.com/",
+  "openingHours": [
+    {
+      "days": [
+        "mo",
+        "tu",
+        "we",
+        "th",
+        "fr",
+        "sa"
+      ],
+      "opens": "07:30",
+      "closes": "13:00"
+    },
+    {
+      "days": [
+        "mo",
+        "tu",
+        "we",
+        "th",
+        "fr",
+        "sa"
+      ],
+      "opens": "17:00",
+      "closes": "22:00"
+    }
+  ],
+  "features": [
+    "Wi-Fi",
+    "Opciones sin TACC",
+    "Para llevar"
+  ],
+  "keywords": [
+    "cafe",
+    "desayuno",
+    "merienda"
+  ],
+  "attributes": {
+    "cuisine": "Cafetería y pastelería",
+    "services": [
+      "Para llevar",
+      "Salón",
+      "Opciones sin TACC"
+    ],
+    "menuUrl": "https://example.com/menu"
+  },
+  "featured": true,
+  "publishedAt": "2026-11-10",
+  "updatedAt": "2026-11-10",
+  "status": "published",
+  "demo": true
+}

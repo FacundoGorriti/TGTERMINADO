@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/*
+ * TARTAGAL GO — Sistema de diseño
+ * Tokens semánticos centralizados. Los componentes usan SOLO tokens
+ * (bg-surface, text-fg, border-line, ...), nunca colores crudos.
+ * El tema se controla con [data-theme] en <html> (ver public/theme-init.js).
+ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  /* Paleta de marca */
+  --brand-black: #090b0f;
+  --brand-surface: #11151b;
+  --brand-elevated: #1a2029;
+  --brand-midnight: #101d35;
+  --brand-blue: #315d91;
+  --brand-ivory: #f5f2ea;
+  --brand-white: #fcfaf6;
+
+  /* Tema claro (por defecto) */
+  --t-bg: #fcfaf6;
+  --t-bg-subtle: #f5f2ea;
+  --t-surface: #ffffff;
+  --t-surface-2: #f3f0e8;
+  --t-fg: #0c0f14;
+  --t-fg-muted: #4a5160;
+  --t-fg-subtle: #5b6270;
+  --t-line: #e4dfd3;
+  --t-line-strong: #cfc8b8;
+  --t-accent: #315d91;
+  --t-accent-hover: #284d79;
+  --t-accent-fg: #fcfaf6;
+  --t-accent-soft: #e6edf6;
+  --t-accent-text: #284d79;
+  --t-hero-from: #101d35;
+  --t-hero-to: #090b0f;
+  --t-success: #1d6b45;
+  --t-success-soft: #e3f3ea;
+  --t-warning: #8a5a00;
+  --t-warning-soft: #fbf0d9;
+  --t-danger: #b42318;
+  --t-danger-soft: #fdecea;
+  --t-info: #1f5a99;
+  --t-info-soft: #e5eef9;
+  --t-focus: #315d91;
+  --t-shadow-card: 0 1px 2px rgb(12 15 20 / 0.04), 0 4px 16px -6px rgb(12 15 20 / 0.08);
+  --t-shadow-raised: 0 2px 4px rgb(12 15 20 / 0.05), 0 16px 40px -12px rgb(12 15 20 / 0.18);
+}
+
+[data-theme="dark"] {
+  --t-bg: #090b0f;
+  --t-bg-subtle: #0d1015;
+  --t-surface: #11151b;
+  --t-surface-2: #1a2029;
+  --t-fg: #f5f2ea;
+  --t-fg-muted: #b3b6bd;
+  --t-fg-subtle: #8d929c;
+  --t-line: #232a35;
+  --t-line-strong: #323b48;
+  --t-accent: #315d91;
+  --t-accent-hover: #3b6ca6;
+  --t-accent-fg: #fcfaf6;
+  --t-accent-soft: #14233c;
+  --t-accent-text: #9cbde6;
+  --t-hero-from: #101d35;
+  --t-hero-to: #090b0f;
+  --t-success: #6fcf97;
+  --t-success-soft: #10261b;
+  --t-warning: #f2c46d;
+  --t-warning-soft: #2a2110;
+  --t-danger: #ff8a80;
+  --t-danger-soft: #2c1414;
+  --t-info: #8fb8ea;
+  --t-info-soft: #122239;
+  --t-focus: #9cbde6;
+  --t-shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.5);
+  --t-shadow-raised: 0 2px 6px rgb(0 0 0 / 0.35), 0 20px 48px -16px rgb(0 0 0 / 0.65);
+}
+
+@theme inline {
+  --color-bg: var(--t-bg);
+  --color-bg-subtle: var(--t-bg-subtle);
+  --color-surface: var(--t-surface);
+  --color-surface-2: var(--t-surface-2);
+  --color-fg: var(--t-fg);
+  --color-fg-muted: var(--t-fg-muted);
+  --color-fg-subtle: var(--t-fg-subtle);
+  --color-line: var(--t-line);
+  --color-line-strong: var(--t-line-strong);
+  --color-accent: var(--t-accent);
+  --color-accent-hover: var(--t-accent-hover);
+  --color-accent-fg: var(--t-accent-fg);
+  --color-accent-soft: var(--t-accent-soft);
+  --color-accent-text: var(--t-accent-text);
+  --color-success: var(--t-success);
+  --color-success-soft: var(--t-success-soft);
+  --color-warning: var(--t-warning);
+  --color-warning-soft: var(--t-warning-soft);
+  --color-danger: var(--t-danger);
+  --color-danger-soft: var(--t-danger-soft);
+  --color-info: var(--t-info);
+  --color-info-soft: var(--t-info-soft);
+  --color-ivory: var(--brand-ivory);
+  --color-ink: var(--brand-black);
+  --color-midnight: var(--brand-midnight);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --shadow-card: var(--t-shadow-card);
+  --shadow-raised: var(--t-shadow-raised);
+  --radius-card: 1.25rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--t-bg);
+    color: var(--t-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: clip;
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--t-accent);
+    color: var(--t-accent-fg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--t-focus);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+
+  /* Evita el zoom automático de iOS al enfocar campos. */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 76rem;
+  padding-inline: 1rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Espacio inferior para la navegación móvil + área segura del dispositivo. */
+@utility pb-mobile-nav {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  @media (width >= 48rem) {
+    padding-bottom: 0;
+  }
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@utility tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.5s var(--ease-out-soft) both;
+}
+
+@utility animate-sheet-up {
+  animation: sheet-up 0.32s var(--ease-out-soft) both;
+}

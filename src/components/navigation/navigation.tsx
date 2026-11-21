@@ -1,0 +1,90 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Compass, Heart, House, LayoutGrid } from "lucide-react";
+import { siteConfig, type NavIcon } from "@/data/site-config";
+import { cn } from "@/lib/utils/cn";
+import { useFavorites } from "@/hooks/use-favorites";
+
+const ICONS: Record<NavIcon, typeof House> = { home: House, compass: Compass, grid: LayoutGrid, heart: Heart };
+
+function isActive(pathname: string, href: string): boolean {
+  const normalized = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  if (href === "/") return normalized === "/";
+  return normalized.startsWith(href);
+}
+
+export function DesktopNavigation() {
+  const pathname = usePathname();
+  return (
+    <nav aria-label="Principal" className="hidden md:block">
+      <ul className="flex items-center gap-1">
+        {siteConfig.navigation.main.map((item) => {
+          const active = isActive(pathname, item.href);
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold transition-colors",
+                  active ? "bg-surface-2 text-fg" : "text-fg-muted hover:bg-surface-2 hover:text-fg",
+                )}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
+export function MobileBottomNavigation() {
+  const pathname = usePathname();
+  const { count } = useFavorites();
+  return (
+    <nav
+      aria-label="Navegación inferior"
+      className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-line bg-bg/90 backdrop-blur-xl md:hidden"
+    >
+      <ul className="mx-auto grid max-w-md grid-cols-4">
+        {siteConfig.navigation.main.map((item) => {
+          const Icon = ICONS[item.icon];
+          const active = isActive(pathname, item.href);
+          const showCount = item.icon === "heart" && count > 0;
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "relative flex min-h-16 flex-col items-center justify-center gap-1 text-[0.7rem] font-semibold transition-colors",
+                  active ? "text-accent-text" : "text-fg-subtle hover:text-fg",
+                )}
+              >
+                <span
+                  className={cn(
+                    "relative grid h-8 w-14 place-items-center rounded-full transition-colors duration-200",
+                    active && "bg-accent-soft",
+                  )}
+                >
+                  <Icon aria-hidden className="size-5" strokeWidth={active ? 2.4 : 2} />
+                  {showCount && (
+                    <span className="absolute -top-0.5 right-2 grid min-w-4 place-items-center rounded-full bg-accent px-1 text-[0.6rem] leading-4 text-accent-fg">
+                      {count > 99 ? "99+" : count}
+                      <span className="sr-only"> guardados</span>
+                    </span>
+                  )}
+                </span>
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}

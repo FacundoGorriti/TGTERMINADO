@@ -1,0 +1,49 @@
+{
+  "id": "demo-0010",
+  "slug": "academia-ejemplo-idiomas",
+  "name": "Academia Ejemplo de Idiomas",
+  "categoryId": "educacion",
+  "subcategoryId": "academias",
+  "shortDescription": "Cursos de inglés y portugués para niños, adolescentes y adultos.",
+  "description": "Academia de demostración que muestra propuestas, modalidad y enlace a inscripciones. Este es un registro FICTICIO de demostración: no representa a un comercio real.",
+  "logo": "/images/demo/academia-ejemplo-idiomas-logo.svg",
+  "coverImage": "/images/demo/academia-ejemplo-idiomas-cover.svg",
+  "gallery": [],
+  "city": "Tartagal",
+  "province": "Salta",
+  "websiteUrl": "https://example.com/",
+  "openingHours": [
+    {
+      "days": [
+        "mo",
+        "tu",
+        "we",
+        "th",
+        "fr"
+      ],
+      "opens": "15:00",
+      "closes": "21:00"
+    }
+  ],
+  "features": [
+    "Grupos reducidos"
+  ],
+  "keywords": [
+    "ingles",
+    "portugues",
+    "clases"
+  ],
+  "attributes": {
+    "courses": [
+      "Inglés",
+      "Portugués"
+    ],
+    "modality": "Presencial y virtual",
+    "enrollmentUrl": "https://example.com/inscripciones"
+  },
+  "featured": false,
+  "publishedAt": "2026-09-15",
+  "updatedAt": "2026-10-10",
+  "status": "published",
+  "demo": true
+}

@@ -1,0 +1,61 @@
+{
+  "id": "demo-0001",
+  "slug": "farmacia-ejemplo-norte",
+  "name": "Farmacia Ejemplo Norte",
+  "categoryId": "salud-y-bienestar",
+  "subcategoryId": "farmacias",
+  "shortDescription": "Farmacia de barrio con perfumería, dermocosmética y atención personalizada.",
+  "description": "Farmacia de demostración pensada para mostrar cómo se ve una ficha del rubro salud: servicios, horarios y acceso al sitio web propio. Este es un registro FICTICIO de demostración: no representa a un comercio real.",
+  "logo": "/images/demo/farmacia-ejemplo-norte-logo.svg",
+  "coverImage": "/images/demo/farmacia-ejemplo-norte-cover.svg",
+  "gallery": [
+    {
+      "src": "/images/demo/galeria-2.svg",
+      "alt": "Imagen de ejemplo del interior de la farmacia"
+    }
+  ],
+  "city": "Tartagal",
+  "province": "Salta",
+  "websiteUrl": "https://example.com/",
+  "openingHours": [
+    {
+      "days": [
+        "mo",
+        "tu",
+        "we",
+        "th",
+        "fr"
+      ],
+      "opens": "08:00",
+      "closes": "22:00"
+    },
+    {
+      "days": [
+        "sa"
+      ],
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "features": [
+    "Perfumería",
+    "Dermocosmética",
+    "Toma de presión"
+  ],
+  "keywords": [
+    "medicamentos",
+    "remedios"
+  ],
+  "attributes": {
+    "services": [
+      "Recetas electrónicas",
+      "Perfumería",
+      "Control de presión arterial"
+    ]
+  },
+  "featured": true,
+  "publishedAt": "2026-11-15",
+  "updatedAt": "2026-11-18",
+  "status": "published",
+  "demo": true
+}

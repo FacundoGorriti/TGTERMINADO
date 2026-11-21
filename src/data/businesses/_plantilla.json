@@ -1,0 +1,41 @@
+{
+  "id": "neg-0000aaaa",
+  "slug": "nombre-del-negocio",
+  "name": "Nombre del Negocio",
+  "categoryId": "gastronomia",
+  "subcategoryId": "cafeterias",
+  "shortDescription": "Una línea que resume qué ofrece (máx. 160 caracteres).",
+  "description": "Descripción completa del negocio (máx. 2000 caracteres). Sin HTML.",
+  "logo": "/images/negocios/nombre-del-negocio/logo.webp",
+  "coverImage": "/images/negocios/nombre-del-negocio/portada.webp",
+  "gallery": [
+    { "src": "/images/negocios/nombre-del-negocio/foto-1.webp", "alt": "Descripción de la foto para lectores de pantalla" }
+  ],
+  "city": "Tartagal",
+  "province": "Salta",
+  "address": "Calle 123",
+  "publicPhone": "+54 3873 000000",
+  "whatsapp": "5493873000000",
+  "websiteUrl": "https://www.nombredelnegocio.com.ar/",
+  "instagramUrl": "https://www.instagram.com/nombredelnegocio/",
+  "facebookUrl": "https://www.facebook.com/nombredelnegocio",
+  "mapsUrl": "https://maps.app.goo.gl/XXXXXXXX",
+  "openingHours": [
+    { "days": ["mo", "tu", "we", "th", "fr"], "opens": "08:00", "closes": "13:00" },
+    { "days": ["mo", "tu", "we", "th", "fr"], "opens": "17:00", "closes": "21:00" },
+    { "days": ["sa"], "opens": "09:00", "closes": "13:00" }
+  ],
+  "openingHoursNote": "Opcional: aclaraciones sobre horarios.",
+  "features": ["Wi-Fi", "Para llevar"],
+  "keywords": ["cafe", "desayuno"],
+  "attributes": {
+    "cuisine": "Cafetería",
+    "services": ["Salón", "Para llevar"],
+    "menuUrl": "https://www.nombredelnegocio.com.ar/menu"
+  },
+  "featured": false,
+  "publishedAt": "2026-12-01",
+  "updatedAt": "2026-12-01",
+  "status": "draft",
+  "demo": false
+}

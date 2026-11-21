@@ -1,0 +1,59 @@
+{
+  "id": "demo-0004",
+  "slug": "hotel-demo-yungas",
+  "name": "Hotel Demo Yungas",
+  "categoryId": "hoteleria-y-turismo",
+  "subcategoryId": "hoteles",
+  "shortDescription": "Hotel céntrico con habitaciones climatizadas y desayuno incluido.",
+  "description": "Hotel de demostración para mostrar la ficha de alojamiento: tipo de alojamiento, servicios y enlace externo de reservas. Este es un registro FICTICIO de demostración: no representa a un comercio real.",
+  "logo": "/images/demo/hotel-demo-yungas-logo.svg",
+  "coverImage": "/images/demo/hotel-demo-yungas-cover.svg",
+  "gallery": [
+    {
+      "src": "/images/demo/galeria-1.svg",
+      "alt": "Imagen de ejemplo de una habitación"
+    }
+  ],
+  "city": "Tartagal",
+  "province": "Salta",
+  "websiteUrl": "https://example.com/",
+  "openingHours": [
+    {
+      "days": [
+        "mo",
+        "tu",
+        "we",
+        "th",
+        "fr",
+        "sa",
+        "su"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ],
+  "openingHoursNote": "Recepción las 24 horas.",
+  "features": [
+    "Desayuno incluido",
+    "Aire acondicionado",
+    "Cochera"
+  ],
+  "keywords": [
+    "alojamiento",
+    "habitaciones"
+  ],
+  "attributes": {
+    "accommodationType": "Hotel urbano",
+    "services": [
+      "Desayuno",
+      "Wi-Fi",
+      "Cochera"
+    ],
+    "bookingUrl": "https://example.com/reservas"
+  },
+  "featured": true,
+  "publishedAt": "2026-11-05",
+  "updatedAt": "2026-11-05",
+  "status": "published",
+  "demo": true
+}

@@ -1,0 +1,36 @@
+# dependencias
+node_modules/
+
+# builds
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# pruebas
+coverage/
+playwright-report/
+test-results/
+blob-report/
+playwright/.cache/
+
+# entorno (nunca versionar secretos)
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel
+
+# sistema / editores
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# configuración local de herramientas
+.claude/
