@@ -80,7 +80,7 @@ Vercel → **Settings → Environment Variables** (entorno *Production* y, si se
 | `NEXT_PUBLIC_SITE_URL` | `https://www.tartagalgo.com.ar` | Recomendada. Si falta, se usa el dominio de producción de Vercel (`VERCEL_PROJECT_PRODUCTION_URL`, ej. `tgterminado.vercel.app`) con una advertencia. Definirla al tener dominio propio. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | `hola@tudominio.com.ar` | Opcional. Si falta, se muestra “configuración pendiente”. |
 | `NEXT_PUBLIC_CONTACT_WHATSAPP` | `5493873000000` | Opcional. Solo dígitos. |
-| `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES` | `false` | Poner `false` cuando haya negocios reales. |
+| `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES` | (sin definir) | Solo `true` para pruebas con registros `demo`. |
 
 Son valores **públicos**: quedan en el HTML/JS. Cualquier cambio requiere un nuevo despliegue (Deployments → Redeploy).
 
@@ -95,7 +95,7 @@ Verificar además:
 - En el HTML (Ver código fuente) existe `<meta http-equiv="Content-Security-Policy" ...>` con `script-src 'self' 'sha256-...'`.
 - La consola del navegador (F12) no muestra errores “Refused to …” al navegar, buscar y guardar favoritos.
 - Herramientas externas: [securityheaders.com](https://securityheaders.com) y [Mozilla Observatory](https://observatory.mozilla.org).
-- Lighthouse (Chrome DevTools → Lighthouse → Mobile) sobre `/`, `/explorar/` y una ficha de negocio.
+- Lighthouse (Chrome DevTools → Lighthouse → Mobile) sobre `/`, `/explorar/` y una categoría.
 
 ## 8. Publicar nuevos negocios
 

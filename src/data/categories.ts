@@ -85,6 +85,7 @@ export const categories: readonly Category[] = [
       { id: "heladerias", name: "Heladerías", schemaType: "IceCreamShop" },
       { id: "rotiserias", name: "Rotiserías" },
       { id: "comida-rapida", name: "Comida rápida", schemaType: "FastFoodRestaurant" },
+      { id: "sandwicherias", name: "Sandwicherías", schemaType: "FastFoodRestaurant" },
       { id: "reposterias", name: "Reposterías", schemaType: "Bakery" },
     ],
   },

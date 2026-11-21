@@ -14,14 +14,14 @@ export const metadata = buildMetadata({
 
 const STEPS = [
   { icon: FileText, title: "Nos contactás", text: "Nos escribís por el canal oficial con el nombre del negocio, el rubro y cómo te encuentran tus clientes." },
-  { icon: BadgeCheck, title: "Revisamos la información", text: "Verificamos los datos públicos: dirección, horarios, teléfono comercial, redes y sitio web." },
-  { icon: Globe, title: "Armamos tu ficha", text: "Creamos la ficha en TARTAGAL GO y, si corresponde, la conectamos con tu sitio web propio." },
-  { icon: Rocket, title: "Publicamos", text: "Tu negocio aparece en el buscador, en su rubro y en las búsquedas de la ciudad." },
+  { icon: BadgeCheck, title: "Revisamos tu propuesta", text: "Vemos qué necesita tu negocio: carta, catálogo, turnos o pedidos por WhatsApp." },
+  { icon: Globe, title: "Creamos tu web", text: "Diseñamos una web propia para tu negocio, con tu nombre, tu logo y tu dominio, lista para trabajar." },
+  { icon: Rocket, title: "Publicamos", text: "Tu web queda en línea y tu negocio aparece en TARTAGAL GO: su tarjeta abre tu web directamente." },
 ];
 
 const BENEFITS = [
-  { icon: Smartphone, title: "Pensado para el celular", text: "La mayoría de las personas busca desde el teléfono. Tu ficha está optimizada para eso." },
-  { icon: Globe, title: "Conectado a tu web", text: "El botón principal lleva a tu sitio. Si todavía no tenés uno, mostramos WhatsApp, teléfono o ubicación." },
+  { icon: Smartphone, title: "Pensada para el celular", text: "La mayoría de las personas busca desde el teléfono. Tu web está hecha primero para el celular." },
+  { icon: Globe, title: "Una herramienta de trabajo", text: "Por ejemplo, una carta con carrito que arma el pedido y lo envía a tu WhatsApp." },
   { icon: ShieldCheck, title: "Información verificada", text: "Solo publicamos datos comerciales públicos. Nada de reseñas ni números inventados." },
 ];
 
@@ -56,7 +56,7 @@ export default function AddBusinessPage() {
         </section>
 
         <section aria-labelledby="beneficios">
-          <SectionHeading id="beneficios" title="Qué incluye tu ficha" />
+          <SectionHeading id="beneficios" title="Qué incluye tu web" />
           <ul className="grid gap-4 md:grid-cols-3">
             {BENEFITS.map(({ icon: Icon, title, text }) => (
               <li key={title} className="flex gap-4 rounded-[var(--radius-card)] border border-line bg-bg-subtle p-5">

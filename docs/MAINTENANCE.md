@@ -4,7 +4,7 @@
 
 | Frecuencia | Tarea |
 | --- | --- |
-| Cada alta o cambio | `npm run catalog:validate` antes del commit. Revisar la ficha en el celular. |
+| Cada alta o cambio | `npm run catalog:validate` antes del commit. Revisar la tarjeta en el celular y que abra la web del negocio. |
 | Semanal | Revisar los PR de Dependabot: si la CI pasa, fusionar los de *patch/minor*. |
 | Mensual | Revisar alertas de seguridad (GitHub → Security). Verificar que los enlaces de los negocios sigan funcionando. |
 | Trimestral | Pedir a cada negocio que confirme horarios y contacto; actualizar `updatedAt`. Revisar Lighthouse en producción. |
@@ -38,17 +38,9 @@ Después de actualizar Next.js, comprobar especialmente:
 - Las variables de entorno de Vercel no están en el repositorio: anotarlas en un lugar seguro (no son secretas, pero sí necesarias).
 - Vercel conserva los despliegues anteriores: se puede volver a cualquiera desde *Deployments*.
 
-## Limpieza de datos de demostración
+## Datos de demostración
 
-Cuando haya negocios reales:
-
-```bash
-rm src/data/businesses/*-demo-*.json src/data/businesses/*-ejemplo-*.json
-rm -r public/images/demo
-```
-
-y/o `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES=false` en Vercel. Luego `npm run verify`.
-Algunas pruebas E2E usan los negocios de demostración: al quitarlos, adaptar `tests/e2e/*.spec.ts` a negocios reales.
+Los negocios ficticios de demostración se quitaron el 2026-11-21: el directorio solo lista negocios reales con web propia.
 
 ## Regenerar íconos e imagen Open Graph
 

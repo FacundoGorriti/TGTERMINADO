@@ -42,8 +42,8 @@ export default function AboutPage() {
           </h2>
           <div className="mt-4 space-y-4 text-fg-muted">
             <p>
-              {siteConfig.name} es un <strong className="text-fg">portal de descubrimiento</strong>: reúne fichas públicas de negocios y las
-              conecta con sus canales propios (sitio web, WhatsApp, teléfono, redes y ubicación). No vende productos, no toma pedidos ni
+              {siteConfig.name} es un <strong className="text-fg">portal de descubrimiento</strong>: reúne a los negocios de la ciudad y lleva a
+              cada uno a su web propia, donde se ven su carta o sus servicios y se le escribe por WhatsApp. No vende productos, no toma pedidos ni
               reservas y no intermedia pagos: cada negocio atiende a sus clientes por sus propios medios.
             </p>
             <p>

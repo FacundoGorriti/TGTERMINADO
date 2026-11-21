@@ -88,6 +88,13 @@ describe("validación del catálogo", () => {
     expect(result.errors.some((e) => e.message.startsWith("websiteUrl"))).toBe(true);
   });
 
+  it("exige la web propia del negocio (la tarjeta la abre directamente)", () => {
+    const sinWeb: Record<string, unknown> = record();
+    delete sinWeb.websiteUrl;
+    const result = validateCatalog([file(sinWeb)], { now: NOW });
+    expect(result.errors.some((e) => e.message.startsWith("websiteUrl"))).toBe(true);
+  });
+
   it("rechaza redes sociales con dominios no permitidos", () => {
     const result = validateCatalog([file(record({ instagramUrl: "https://instagram.com.evil.io/x" }))], { now: NOW });
     expect(result.errors.some((e) => e.message.startsWith("instagramUrl"))).toBe(true);

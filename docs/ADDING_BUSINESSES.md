@@ -2,7 +2,8 @@
 
 Cada negocio es **un archivo JSON** en `src/data/businesses/`, con el mismo nombre que su `slug`
 (por ejemplo `src/data/businesses/panaderia-san-martin.json`). No hace falta tocar componentes, rutas ni páginas:
-la ficha, los listados, el buscador, los filtros, los contadores y el sitemap se generan solos.
+las tarjetas, los listados, el buscador, los filtros y los contadores se generan solos. La tarjeta abre la web propia del negocio
+en la misma pestaña, así que primero hay que tener esa web publicada (su propio repositorio y despliegue en Vercel).
 
 ## Procedimiento completo
 
@@ -23,7 +24,7 @@ la ficha, los listados, el buscador, los filtros, los contadores y el sitemap se
    ```bash
    npm run catalog:validate
    ```
-6. **Revisá localmente** (opcional): `npm run dev` y abrí `http://localhost:3000/negocios/<slug>/`.
+6. **Revisá localmente** (opcional): `npm run dev`, buscá el negocio en `http://localhost:3000/explorar/` y tocá su tarjeta.
    Los registros en `draft` no se muestran: cambiá a `"published"` para verlos.
 7. **Publicá**:
    ```bash
@@ -38,7 +39,7 @@ la ficha, los listados, el buscador, los filtros, los contadores y el sitemap se
 | Campo | Obligatorio | Formato / reglas |
 | --- | --- | --- |
 | `id` | sí | Identificador estable, minúsculas/números/guiones (el asistente genera uno: `neg-xxxxxxxx`). No cambiarlo nunca. |
-| `slug` | sí | URL del negocio: `/negocios/<slug>/`. Igual al nombre del archivo. Único. |
+| `slug` | sí | Identificador del negocio (favoritos, buscador). Igual al nombre del archivo. Único. |
 | `name` | sí | Nombre comercial (máx. 90). |
 | `categoryId` / `subcategoryId` | sí | Deben existir en `src/data/categories.ts` y el subrubro debe pertenecer al rubro. |
 | `shortDescription` | sí | Máx. 160 caracteres. Aparece en tarjetas y buscadores. |
@@ -49,7 +50,7 @@ la ficha, los listados, el buscador, los filtros, los contadores y el sitemap se
 | `address` | no | Dirección pública del local. |
 | `publicPhone` | no | Teléfono comercial, ej. `+54 3873 000000`. Genera el botón “Llamar”. |
 | `whatsapp` | no | Solo dígitos con código de país, ej. `5493873000000`. Genera el botón “WhatsApp”. |
-| `websiteUrl` | no | `https://...`. Genera el botón principal “Visitar sitio web”. |
+| `websiteUrl` | **sí** | `https://...` de la web propia del negocio. La tarjeta la abre en la misma pestaña. |
 | `instagramUrl` / `facebookUrl` | no | `https://` en instagram.com / facebook.com. |
 | `mapsUrl` | no | Enlace https de Google Maps (`google.com/maps`, `maps.app.goo.gl`). Genera “Cómo llegar”. |
 | `openingHours` | no | Lista de `{ "days": ["mo","tu",...], "opens": "08:00", "closes": "13:00" }`. Días: mo tu we th fr sa su. Para horario cortado, dos entradas. |
@@ -106,7 +107,7 @@ Un campo no admitido para el rubro produce un error de validación.
 | --- | --- |
 | `slug duplicado` / `id duplicado` | Elegir otro slug / no copiar el id de otro archivo. |
 | `subcategoryId ... no pertenece` | Revisar el subrubro en `categories.ts`. |
-| `websiteUrl: URL inválida` | Debe empezar con `https://`. |
+| `websiteUrl: URL inválida` | Es obligatoria y debe empezar con `https://`. |
 | `Imagen faltante` | Verificar la ruta y que el archivo esté en `public/`. |
 | `El archivo debe llamarse ...` | Renombrar el archivo igual que el slug. |
 | `Unrecognized key` | Hay un campo mal escrito (por ejemplo `webiste`). |

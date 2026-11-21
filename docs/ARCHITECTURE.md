@@ -28,15 +28,13 @@ src/data/site-config.ts ────┘                                │
 | `/explorar/` | estática + cliente | `DirectoryExplorer` dentro de `Suspense` (lee `useSearchParams`). El fallback es la grilla estática (SEO/no-JS) |
 | `/categorias/` | estática | Conteos reales por rubro |
 | `/categorias/[slug]/` | SSG (`generateStaticParams`) | Explorer con categoría fija |
-| `/negocios/[slug]/` | SSG | Ficha + JSON-LD LocalBusiness (excepto demos) |
 | `/favoritos/` | estática + cliente | `localStorage`, `noindex` |
 | `/nosotros/`, `/sumar-negocio/`, `/contacto/`, `/privacidad/`, `/terminos/` | estáticas | |
 | `404` | `not-found.tsx` | Vercel sirve `404.html` |
 | `sitemap.xml`, `robots.txt`, `manifest.webmanifest` | `force-static` | |
 
 `dynamicParams = false`: cualquier slug no generado responde 404.
-Si el catálogo queda vacío, `/negocios/[slug]` genera un marcador `sin-negocios` que muestra la página 404
-(requisito de `output: "export"`, que exige al menos un parámetro).
+Cada tarjeta de negocio enlaza a su web propia (`websiteUrl`, obligatoria) en la misma pestaña: no hay fichas internas.
 
 ## Módulos
 

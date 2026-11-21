@@ -75,7 +75,8 @@ export const businessSchema = z
     address: safeText(160).optional(),
     publicPhone: phone.optional(),
     whatsapp: whatsapp.optional(),
-    websiteUrl: httpsUrl.optional(),
+    /** Web propia del negocio (obligatoria): la tarjeta del directorio la abre directamente. */
+    websiteUrl: httpsUrl,
     instagramUrl: z
       .string()
       .refine((v) => safeTrustedUrl(v, "instagram") !== null, "Instagram: debe ser https://instagram.com/...")

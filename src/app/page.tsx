@@ -28,8 +28,8 @@ const DISCOVER = [
 
 const STEPS = [
   { icon: Search, title: "Buscá", text: "Escribí lo que necesitás o recorré los rubros. La búsqueda funciona al instante y sin registrarte." },
-  { icon: Store, title: "Conocé", text: "Cada negocio tiene una ficha con horarios, ubicación, servicios y medios de contacto verificados." },
-  { icon: Globe, title: "Conectá", text: "Visitá su sitio web, escribile por WhatsApp o guardalo en favoritos para volver cuando quieras." },
+  { icon: Store, title: "Entrá", text: "Cada negocio tiene su propia web: tocá la tarjeta y entrás directo a su carta, sus servicios o su catálogo." },
+  { icon: Globe, title: "Pedí", text: "Desde su web armás el pedido o la consulta y lo mandás por WhatsApp. Guardalo en favoritos para volver." },
 ];
 
 export default function HomePage() {

@@ -83,6 +83,7 @@ export function toSummary(b: Business): BusinessSummary {
     city: b.city,
     logo: b.logo ?? null,
     coverImage: b.coverImage ?? null,
+    websiteUrl: b.websiteUrl,
     hasWebsite: Boolean(b.websiteUrl),
     hasWhatsapp: Boolean(b.whatsapp),
     featured: b.featured,

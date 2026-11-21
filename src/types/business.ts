@@ -13,6 +13,8 @@ export interface BusinessSummary {
   city: string;
   logo: string | null;
   coverImage: string | null;
+  /** Web propia del negocio (https), destino de la tarjeta. */
+  websiteUrl: string;
   hasWebsite: boolean;
   hasWhatsapp: boolean;
   featured: boolean;

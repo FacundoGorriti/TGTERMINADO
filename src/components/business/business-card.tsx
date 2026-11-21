@@ -1,6 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
-import { Globe, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import type { BusinessSummary } from "@/types/business";
 import { FavoriteButton } from "@/components/business/favorite-button";
 import { Badge, DemoBadge } from "@/components/ui/primitives";
@@ -44,9 +43,11 @@ export function BusinessCard({ business, priority = false, headingLevel = 3 }: {
 
         <p className="text-xs font-semibold tracking-wide text-accent-text uppercase">{business.subcategoryName}</p>
         <Heading className="mt-1 text-lg leading-snug font-semibold text-fg">
-          <Link href={`/negocios/${business.slug}/`} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none">
+          {/* Abre la web propia del negocio en la misma pestaña. */}
+          <a href={business.websiteUrl} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none" data-testid="business-link">
             {business.name}
-          </Link>
+            <span className="sr-only"> (abre su sitio web)</span>
+          </a>
         </Heading>
         <p className="mt-1.5 line-clamp-2 flex-1 text-sm text-fg-muted">{business.shortDescription}</p>
 
@@ -55,13 +56,11 @@ export function BusinessCard({ business, priority = false, headingLevel = 3 }: {
             <MapPin aria-hidden className="size-3.5" />
             {business.city}
           </Badge>
-          {business.hasWebsite && (
-            <Badge tone="accent">
-              <Globe aria-hidden className="size-3.5" />
-              Sitio web
-            </Badge>
-          )}
           {business.featured && <Badge tone="neutral">Destacado</Badge>}
+          <span aria-hidden className="ml-auto inline-flex items-center gap-1 text-sm font-semibold text-accent-text transition-transform duration-200 group-hover:translate-x-0.5">
+            Ver la web
+            <ArrowUpRight className="size-4" />
+          </span>
         </div>
       </div>
       {/* Indicador de foco para el enlace que cubre toda la tarjeta */}

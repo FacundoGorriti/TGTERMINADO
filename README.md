@@ -68,13 +68,17 @@ Todo lo personalizable está en [`src/data/site-config.ts`](src/data/site-config
 | `NEXT_PUBLIC_SITE_URL` | URL canónica (en Vercel, si falta, se usa el dominio `*.vercel.app` del proyecto) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Correo de contacto público (opcional) |
 | `NEXT_PUBLIC_CONTACT_WHATSAPP` | WhatsApp público, solo dígitos (opcional) |
-| `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES` | `true`/`false`: mostrar los negocios ficticios de demostración |
+| `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES` | `true` solo para pruebas: mostrar registros marcados `demo` (por defecto ocultos) |
 
 > Las variables `NEXT_PUBLIC_*` quedan visibles en el navegador. **Nunca** usar para secretos.
 
-## Datos de demostración
+## Cómo funciona el directorio
 
-El repositorio incluye 10 negocios **ficticios** (`"demo": true`, archivos `src/data/businesses/*-demo-*` y `*-ejemplo-*`) para mostrar el funcionamiento. Se rotulan como “Ejemplo ficticio”, no se indexan (`noindex`), no generan datos estructurados y no aparecen en el sitemap. Para quitarlos: borrar esos archivos y `public/images/demo/`, o definir `NEXT_PUBLIC_SHOW_DEMO_BUSINESSES=false`.
+Cada negocio del directorio tiene **su propia web** (por ejemplo, una carta con pedidos por WhatsApp), con su repositorio y su
+dominio en Vercel. En TARTAGAL GO, la tarjeta del negocio abre esa web **en la misma pestaña**; no hay fichas internas.
+Por eso `websiteUrl` es obligatorio en cada archivo de `src/data/businesses/`.
+
+Negocios publicados: **Sandwichería Abi** → https://sandwicheriaaby2000.vercel.app/
 
 ## Documentación
 

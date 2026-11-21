@@ -128,7 +128,7 @@ export const siteConfig = {
 
   features: {
     /** Muestra negocios ficticios de demostración (marcados `demo: true`). */
-    showDemoBusinesses: envShowDemo === null ? true : envShowDemo === "true",
+    showDemoBusinesses: envShowDemo === "true",
     favorites: true,
     share: true,
     /** Cantidad de resultados por "página" de carga progresiva en Explorar. */

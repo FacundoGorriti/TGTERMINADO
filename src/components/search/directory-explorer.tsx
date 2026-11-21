@@ -119,15 +119,6 @@ export function DirectoryExplorer({ businesses, categories, cities, lockedCatego
           />
         </fieldset>
       )}
-      <label className="flex min-h-11 cursor-pointer items-center justify-between gap-3 rounded-2xl border border-line bg-surface px-4 py-2">
-        <span className="text-sm font-medium text-fg">Solo con sitio web</span>
-        <input
-          type="checkbox"
-          checked={filters.onlyWithWebsite}
-          onChange={(e) => update({ onlyWithWebsite: e.target.checked })}
-          className="size-5 accent-[var(--t-accent)]"
-        />
-      </label>
     </div>
   );
 

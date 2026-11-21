@@ -5,7 +5,10 @@ import { getVisibleBusinesses } from "@/lib/catalog";
 
 export const dynamic = "force-static";
 
-/** Sitemap generado en el build. Excluye registros de demostración y favoritos (no indexables). */
+/**
+ * Sitemap generado en el build. Cada negocio tiene su web propia (fuera de este dominio), por eso aquí
+ * solo figuran las páginas del directorio. Favoritos no se indexa.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
   const businesses = getVisibleBusinesses().filter((b) => !b.demo);
@@ -24,12 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: latest,
       changeFrequency: "weekly" as const,
       priority: 0.7,
-    })),
-    ...businesses.map((b) => ({
-      url: `${base}/negocios/${b.slug}/`,
-      lastModified: b.updatedAt,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
     })),
   ];
 }

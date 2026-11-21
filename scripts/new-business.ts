@@ -95,8 +95,8 @@ async function main() {
   const city = await ask("Localidad", String(args.city ?? siteConfig.location.mainCity), (v) =>
     cities.includes(v) ? null : `Debe ser una de: ${cities.join(", ")}`,
   );
-  const websiteUrl = await ask("Sitio web (https://..., opcional)", String(args.web ?? ""), (v) =>
-    !v || safeHttpsUrl(v) ? null : "Debe ser una URL https:// válida",
+  const websiteUrl = await ask("Web propia del negocio (https://..., obligatoria)", String(args.web ?? ""), (v) =>
+    safeHttpsUrl(v) ? null : "Obligatoria: una URL https:// válida (la tarjeta abre esta web)",
   );
   const whatsapp = await ask("WhatsApp internacional, solo dígitos (opcional)", String(args.whatsapp ?? ""), (v) =>
     !v || /^\d{10,15}$/.test(v) ? null : "Ej: 5493873000000",
@@ -118,7 +118,7 @@ async function main() {
     gallery: [],
     city,
     province: siteConfig.location.province,
-    ...(websiteUrl ? { websiteUrl } : {}),
+    websiteUrl,
     ...(whatsapp ? { whatsapp } : {}),
     openingHours: [],
     features: [],

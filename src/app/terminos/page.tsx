@@ -44,15 +44,11 @@ export default function TermsPage() {
               La relación comercial se establece exclusivamente entre el visitante y cada negocio. {siteConfig.name} no es parte de esa
               relación ni garantiza productos o servicios de terceros.
             </li>
-            <li>
-              Los registros señalados como “Ejemplo ficticio” son demostraciones del funcionamiento de la plataforma y no representan
-              comercios reales.
-            </li>
           </ul>
 
           <h2>3. Sitios externos</h2>
           <p>
-            Las fichas pueden enlazar a sitios web, redes sociales, WhatsApp o mapas de terceros. Esos contenidos son responsabilidad de
+            Las tarjetas del directorio enlazan a la web propia de cada negocio, que a su vez puede enlazar a WhatsApp, redes o mapas. Esos contenidos son responsabilidad de
             sus titulares.
           </p>
 

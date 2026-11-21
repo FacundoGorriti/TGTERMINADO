@@ -1,0 +1,28 @@
+{
+  "id": "neg-sandwicheria-abi",
+  "slug": "sandwicheria-abi",
+  "name": "Sandwichería Abi",
+  "categoryId": "gastronomia",
+  "subcategoryId": "sandwicherias",
+  "shortDescription": "Lomitos, sándwiches, hamburguesas y pizzas con masa casera. Armá tu pedido y envialo por WhatsApp.",
+  "description": "Sandwichería de Tartagal con lomitos, milanesas y sándwiches en pan de miga, hamburguesas (con promos de económicas de a tres) y pizzas con masa casera. Desde su web se arma el pedido con la carta completa y se envía por WhatsApp al local.",
+  "logo": "/images/negocios/sandwicheria-abi/logo.webp",
+  "coverImage": "/images/negocios/sandwicheria-abi/portada.webp",
+  "gallery": [],
+  "city": "Tartagal",
+  "province": "Salta",
+  "whatsapp": "5493873630347",
+  "websiteUrl": "https://sandwicheriaaby2000.vercel.app/",
+  "openingHours": [],
+  "features": ["Pedidos por WhatsApp", "Promos de hamburguesas"],
+  "keywords": ["sandwicheria", "lomito", "lomitos", "sandwich", "milanesa", "pan de miga", "hamburguesa", "pizza", "pizzeria", "comida", "delivery", "aby"],
+  "attributes": {
+    "cuisine": "Sándwiches, hamburguesas y pizzas",
+    "menuUrl": "https://sandwicheriaaby2000.vercel.app/#carta"
+  },
+  "featured": true,
+  "publishedAt": "2026-11-21",
+  "updatedAt": "2026-11-21",
+  "status": "published",
+  "demo": false
+}

@@ -3,17 +3,16 @@ import { expect, expectNoHorizontalOverflow, test } from "./fixtures";
 
 test.describe("favoritos", () => {
   test("guardar, listar, persistir y quitar", async ({ page }) => {
-    await page.goto("/negocios/hotel-demo-yungas/");
-    const save = page.getByRole("button", { name: "Guardar", exact: true });
-    await save.click();
-    await expect(page.getByRole("button", { name: "Guardado", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await page.goto("/explorar/");
+    await page.getByRole("button", { name: /Guardar Sandwichería Abi en favoritos/ }).click();
+    await expect(page.getByRole("button", { name: /Quitar Sandwichería Abi de favoritos/ })).toHaveAttribute("aria-pressed", "true");
 
     await page.goto("/favoritos/");
     await expect(page.getByTestId("favorites-count")).toContainText("1 negocio guardado");
     await page.reload();
     await expect(page.getByTestId("business-card")).toHaveCount(1);
 
-    await page.getByRole("button", { name: /Quitar Hotel Demo Yungas de favoritos/ }).click();
+    await page.getByRole("button", { name: /Quitar Sandwichería Abi de favoritos/ }).click();
     await expect(page.getByText("Todavía no guardaste negocios")).toBeVisible();
   });
 
@@ -54,34 +53,27 @@ test.describe("tema", () => {
   });
 });
 
-test.describe("ficha de negocio", () => {
-  test("botón principal 'Visitar sitio web' seguro", async ({ page }) => {
-    await page.goto("/negocios/cafe-demo-la-plaza/");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Café Demo La Plaza");
-    const web = page.getByRole("link", { name: /Visitar sitio web/ });
-    await expect(web.first()).toHaveAttribute("href", /^https:\/\//);
-    await expect(web.first()).toHaveAttribute("rel", "noopener noreferrer");
-    await expect(web.first()).toHaveAttribute("target", "_blank");
-    await expect(page.getByRole("heading", { name: "Información del rubro" })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Ver menú/ })).toHaveAttribute("rel", "noopener noreferrer");
+test.describe("tarjeta de negocio", () => {
+  test("la tarjeta abre la web propia del negocio en la misma pestaña", async ({ page }) => {
+    await page.route("https://sandwicheriaaby2000.vercel.app/**", (route) =>
+      route.fulfill({ status: 200, contentType: "text/html", body: "<title>Abi</title>" }),
+    );
+    await page.goto("/explorar/");
+    const link = page.getByTestId("business-card").first().getByTestId("business-link");
+    await expect(link).toHaveAttribute("href", "https://sandwicheriaaby2000.vercel.app/");
+    expect(await link.getAttribute("target")).toBeNull();
+    await link.click();
+    await expect(page).toHaveURL("https://sandwicheriaaby2000.vercel.app/");
+    expect(page.context().pages()).toHaveLength(1);
   });
 
-  test("sin sitio web no se muestran botones inexistentes", async ({ page }) => {
-    await page.goto("/negocios/artesanias-demo-del-monte/");
-    await expect(page.getByRole("link", { name: /Visitar sitio web/ })).toHaveCount(0);
-    await expect(page.getByTestId("contact-actions")).toHaveCount(0);
-    await expect(page.getByText("todavía no publicó medios de contacto").first()).toBeAttached();
-  });
-
-  test("los registros de demostración no se indexan y están rotulados", async ({ page }) => {
-    await page.goto("/negocios/hotel-demo-yungas/");
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-    await expect(page.getByText("Ejemplo ficticio").first()).toBeVisible();
-    await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(2); // WebSite + BreadcrumbList, sin LocalBusiness
+  test("ya no existen fichas internas de negocio", async ({ page }) => {
+    const res = await page.goto("/negocios/sandwicheria-abi/");
+    expect(res?.status()).toBe(404);
   });
 
   test("todos los enlaces externos usan rel noopener noreferrer", async ({ page }) => {
-    for (const path of ["/", "/negocios/cafe-demo-la-plaza/", "/negocios/hotel-demo-yungas/"]) {
+    for (const path of ["/", "/explorar/"]) {
       await page.goto(path);
       const unsafe = await page.$$eval('a[target="_blank"]', (links) =>
         links.filter((a) => !(a.getAttribute("rel") ?? "").includes("noopener")).map((a) => a.getAttribute("href")),
@@ -108,7 +100,7 @@ test.describe("seguridad", () => {
     expect(meta).toMatch(/script-src 'self' 'sha256-/);
     expect(meta).not.toMatch(/script-src[^;]*'unsafe-(inline|eval)'/);
 
-    await page.getByRole("searchbox").fill("hotel");
+    await page.getByRole("searchbox").fill("pizza");
     await expect(page.getByTestId("business-card")).toHaveCount(1);
     expect(consoleErrors.filter((e) => /Content Security Policy|Refused to/i.test(e))).toEqual([]);
     expect(consoleErrors).toEqual([]);
@@ -118,14 +110,15 @@ test.describe("seguridad", () => {
     await page.goto("/categorias/");
     await page.getByRole("link", { name: /Gastronomía/ }).first().click();
     await expect(page.getByRole("heading", { level: 1, name: "Gastronomía" })).toBeVisible();
-    await page.getByTestId("business-card").first().getByRole("link").click();
-    await expect(page).toHaveURL(/\/negocios\//);
+    await expect(page.getByTestId("business-card").first()).toContainText("Sandwichería Abi");
+    await page.getByRole("link", { name: "Explorar" }).first().click();
+    await expect(page).toHaveURL(/\/explorar\//);
     expect(consoleErrors).toEqual([]);
   });
 });
 
 test.describe("accesibilidad básica (axe, WCAG 2.x A/AA)", () => {
-  for (const path of ["/", "/explorar/", "/categorias/", "/categorias/salud-y-bienestar/", "/negocios/farmacia-ejemplo-norte/", "/favoritos/", "/sumar-negocio/", "/privacidad/"]) {
+  for (const path of ["/", "/explorar/", "/categorias/", "/categorias/salud-y-bienestar/", "/categorias/gastronomia/", "/favoritos/", "/sumar-negocio/", "/privacidad/"]) {
     for (const scheme of ["light", "dark"] as const) {
       test(`${path} (${scheme})`, async ({ page }) => {
         await page.emulateMedia({ colorScheme: scheme, reducedMotion: "reduce" });
@@ -145,7 +138,7 @@ test.describe("diseño responsive", () => {
   for (const width of [320, 375, 390, 430, 768, 1024, 1440]) {
     test(`sin desplazamiento horizontal a ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
-      for (const path of ["/", "/explorar/", "/negocios/cafe-demo-la-plaza/", "/categorias/"]) {
+      for (const path of ["/", "/explorar/", "/categorias/gastronomia/", "/categorias/"]) {
         await page.goto(path);
         await expectNoHorizontalOverflow(page);
       }

@@ -51,12 +51,12 @@ test.describe("navegación", () => {
   test("categoría individual muestra subrubros y negocios", async ({ page }) => {
     await page.goto("/categorias/gastronomia/");
     await expect(page.getByRole("heading", { level: 1, name: "Gastronomía" })).toBeVisible();
-    await expect(page.getByRole("navigation", { name: /Subrubros/ }).getByRole("link")).toHaveCount(10);
+    await expect(page.getByRole("navigation", { name: /Subrubros/ }).getByRole("link")).toHaveCount(11);
     await expect(page.getByTestId("business-card").first()).toBeVisible();
   });
 
   test("negocio inexistente responde 404 con página útil", async ({ page }) => {
-    const res = await page.goto("/negocios/no-existe/");
+    const res = await page.goto("/no-existe/");
     expect(res?.status()).toBe(404);
     await expect(page.getByRole("heading", { name: "No encontramos esta página" })).toBeVisible();
     await expect(page.getByRole("link", { name: "Volver al inicio" })).toBeVisible();
@@ -67,8 +67,8 @@ test.describe("navegación", () => {
     expect(sitemap.status()).toBe(200);
     const xml = await sitemap.text();
     expect(xml).toContain("/categorias/gastronomia/");
-    // Los registros de demostración no se publican en el sitemap.
-    expect(xml).not.toContain("/negocios/cafe-demo-la-plaza/");
+    // Cada negocio tiene web propia: el sitemap no publica fichas internas.
+    expect(xml).not.toContain("/negocios/");
     const robots = await request.get("/robots.txt");
     expect(await robots.text()).toContain("Sitemap:");
   });
