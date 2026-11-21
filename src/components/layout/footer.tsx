@@ -85,12 +85,15 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-line">
-        <div className="container-page flex flex-col gap-2 py-6 text-xs text-fg-subtle sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-2 py-6 text-xs text-fg-subtle lg:flex-row lg:items-center lg:justify-between">
           <p>
-            © {year} {siteConfig.name}. Directorio de {siteConfig.location.mainCity}, {siteConfig.location.province},{" "}
-            {siteConfig.location.country}.
+            © {year} {siteConfig.name}. Todos los derechos reservados. Directorio de {siteConfig.location.mainCity},{" "}
+            {siteConfig.location.province}. La información de cada negocio es responsabilidad de su titular.
           </p>
-          <p>La información de cada negocio es responsabilidad de su titular.</p>
+          <p className="text-fg-muted">
+            Diseño y desarrollo web por <span className="font-semibold text-fg">{siteConfig.developer.name}</span> ·{" "}
+            {siteConfig.developer.role}
+          </p>
         </div>
       </div>
     </footer>

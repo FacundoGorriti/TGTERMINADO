@@ -50,6 +50,8 @@ export const siteConfig = {
   hasConfiguredUrl: envSiteUrl !== null,
   /** true solo si se definió NEXT_PUBLIC_SITE_URL. */
   hasExplicitUrl: explicitSiteUrl !== null,
+  /** Autor del sitio (crédito en el pie de página). */
+  developer: { name: "Facundo Gorriti", role: "Desarrollador web" },
   locale: "es_AR",
   language: "es-AR",
 

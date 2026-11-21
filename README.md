@@ -3,6 +3,8 @@
 **Directorio digital de comercios, profesionales, servicios y emprendimientos de Tartagal, Salta.**
 El portal central de descubrimiento que conecta a las personas con los negocios de su ciudad y con los sitios web propios de cada negocio.
 
+Diseño y desarrollo: **Facundo Gorriti** — Desarrollador web. © 2026, todos los derechos reservados (ver [LICENSE](LICENSE)).
+
 - 100 % frontend y **estático**: Next.js (App Router, `output: "export"`), React, TypeScript estricto y Tailwind CSS.
 - Sin base de datos, sin backend, sin cuentas ni formularios. Los datos públicos viven en archivos JSON versionados.
 - Búsqueda, filtros y favoritos funcionan en el navegador.
