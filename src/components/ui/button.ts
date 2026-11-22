@@ -9,8 +9,8 @@ const base =
   "active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50";
 
 const variants: Record<ButtonVariant, string> = {
-  primary: "bg-accent text-accent-fg shadow-card hover:bg-accent-hover",
-  secondary: "border border-line-strong bg-surface text-fg hover:border-accent hover:text-accent-text",
+  primary: "bg-accent text-accent-fg font-bold shadow-[0_10px_30px_-10px_rgb(200_240_49/0.7)] hover:-translate-y-0.5 hover:bg-accent-hover",
+  secondary: "border border-line-strong bg-surface text-fg hover:-translate-y-0.5 hover:border-fg",
   ghost: "text-fg-muted hover:bg-surface-2 hover:text-fg",
   whatsapp: "bg-[#1a7f45] text-white shadow-card hover:bg-[#156b3a]",
   inverse: "bg-ivory text-ink hover:bg-white",

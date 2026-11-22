@@ -19,7 +19,7 @@ export function DesktopNavigation() {
   const pathname = usePathname();
   return (
     <nav aria-label="Principal" className="hidden md:block">
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-1 rounded-full border border-line bg-surface/70 p-1 shadow-card">
         {siteConfig.navigation.main.map((item) => {
           const active = isActive(pathname, item.href);
           return (
@@ -28,8 +28,8 @@ export function DesktopNavigation() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold transition-colors",
-                  active ? "bg-surface-2 text-fg" : "text-fg-muted hover:bg-surface-2 hover:text-fg",
+                  "inline-flex min-h-10 items-center rounded-full px-4 text-sm font-semibold transition-colors duration-200",
+                  active ? "bg-ink text-lime dark:bg-lime dark:text-ink" : "text-fg-muted hover:bg-surface-2 hover:text-fg",
                 )}
               >
                 {item.label}
@@ -48,9 +48,9 @@ export function MobileBottomNavigation() {
   return (
     <nav
       aria-label="Navegación inferior"
-      className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-line bg-bg/90 backdrop-blur-xl md:hidden"
+      className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 md:hidden"
     >
-      <ul className="mx-auto grid max-w-md grid-cols-4">
+      <ul className="glass mx-auto grid max-w-md grid-cols-4 gap-1 rounded-[1.75rem] border border-line p-1.5 shadow-raised">
         {siteConfig.navigation.main.map((item) => {
           const Icon = ICONS[item.icon];
           const active = isActive(pathname, item.href);
@@ -61,19 +61,19 @@ export function MobileBottomNavigation() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative flex min-h-16 flex-col items-center justify-center gap-1 text-[0.7rem] font-semibold transition-colors",
-                  active ? "text-accent-text" : "text-fg-subtle hover:text-fg",
+                  "relative flex min-h-[3.6rem] flex-col items-center justify-center gap-0.5 rounded-[1.35rem] text-[0.68rem] font-semibold transition-[background-color,color] duration-300",
+                  active ? "bg-ink text-lime dark:bg-lime dark:text-ink" : "text-fg-muted hover:text-fg",
                 )}
               >
                 <span
                   className={cn(
-                    "relative grid h-8 w-14 place-items-center rounded-full transition-colors duration-200",
-                    active && "bg-accent-soft",
+                    "relative grid h-7 w-12 place-items-center transition-transform duration-300 ease-[var(--ease-spring)]",
+                    active && "-translate-y-0.5 scale-110",
                   )}
                 >
                   <Icon aria-hidden className="size-5" strokeWidth={active ? 2.4 : 2} />
                   {showCount && (
-                    <span className="absolute -top-0.5 right-2 grid min-w-4 place-items-center rounded-full bg-accent px-1 text-[0.6rem] leading-4 text-accent-fg">
+                    <span className="absolute -top-1 right-1 grid min-w-4 place-items-center rounded-full bg-lime px-1 text-[0.6rem] leading-4 font-bold text-ink ring-2 ring-[var(--t-bg)]">
                       {count > 99 ? "99+" : count}
                       <span className="sr-only"> guardados</span>
                     </span>

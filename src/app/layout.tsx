@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Unbounded } from "next/font/google";
 import "@/styles/globals.css";
 import { siteConfig } from "@/data/site-config";
 import { AppHeader } from "@/components/layout/app-header";
@@ -7,10 +7,11 @@ import { Footer } from "@/components/layout/footer";
 import { MobileBottomNavigation } from "@/components/navigation/navigation";
 import { BackToTop } from "@/components/ui/interactive";
 import { JsonLd } from "@/components/seo/json-ld";
+import { ChainBackground } from "@/components/brand/chain-background";
 
 // next/font descarga las fuentes en el build y las sirve desde el propio dominio (autohospedadas).
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const sora = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap", weight: ["600", "700"] });
+const unbounded = Unbounded({ subsets: ["latin"], variable: "--font-unbounded", display: "swap", weight: ["500", "600", "700", "800"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -35,14 +36,14 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fcfaf6" },
-    { media: "(prefers-color-scheme: dark)", color: "#090b0f" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f1ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#07080b" },
   ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es-AR" className={`${inter.variable} ${sora.variable}`} suppressHydrationWarning>
+    <html lang="es-AR" className={`${inter.variable} ${unbounded.variable}`} suppressHydrationWarning>
       <head>
         {/* Bloqueante a propósito: aplica el tema antes del primer pintado (sin parpadeo). */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
@@ -51,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-dvh">
         <a
           href="#contenido"
-          className="fixed top-2 left-2 z-[60] -translate-y-24 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-accent-fg shadow-raised transition-transform focus:translate-y-0"
+          className="fixed top-2 left-2 z-[60] -translate-y-24 rounded-full bg-lime px-4 py-3 text-sm font-semibold text-ink shadow-raised transition-transform focus:translate-y-0"
         >
           Saltar al contenido
         </a>
@@ -59,9 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenido" tabIndex={-1} className="outline-none">
           {children}
         </main>
-        <div className="pb-mobile-nav">
-          <Footer />
-        </div>
+        <Footer />
+        {/* Al final del body: se pinta sobre los fondos de las bandas oscuras y debajo del contenido (z-index 1+). */}
+        <ChainBackground />
         <MobileBottomNavigation />
         <BackToTop />
         <JsonLd

@@ -2,8 +2,9 @@
 
 /*
  * TARTAGAL GO — Sistema de diseño
- * Tokens semánticos centralizados. Los componentes usan SOLO tokens
- * (bg-surface, text-fg, border-line, ...), nunca colores crudos.
+ * Concepto: "Tu ciudad, conectada." Una cadena de eslabones cromados recorre el sitio; cada negocio es
+ * un eslabón. Marca: negro tinta + verde lima "GO" (señal de avance), con cian como luz secundaria.
+ * Tokens semánticos centralizados. Los componentes usan SOLO tokens (bg-surface, text-fg, ...).
  * El tema se controla con [data-theme] en <html> (ver public/theme-init.js).
  */
 
@@ -11,31 +12,29 @@
 
 :root {
   /* Paleta de marca */
-  --brand-black: #090b0f;
-  --brand-surface: #11151b;
-  --brand-elevated: #1a2029;
-  --brand-midnight: #101d35;
-  --brand-blue: #315d91;
-  --brand-ivory: #f5f2ea;
-  --brand-white: #fcfaf6;
+  --brand-ink: #07080b;
+  --brand-ink-2: #0d0f14;
+  --brand-lime: #c8f031;
+  --brand-lime-hi: #d9ff57;
+  --brand-cyan: #50dcff;
+  --brand-paper: #f3f1ea;
+  --brand-white: #fbfaf6;
 
   /* Tema claro (por defecto) */
-  --t-bg: #fcfaf6;
-  --t-bg-subtle: #f5f2ea;
+  --t-bg: #f3f1ea;
+  --t-bg-subtle: #ebe8de;
   --t-surface: #ffffff;
-  --t-surface-2: #f3f0e8;
-  --t-fg: #0c0f14;
-  --t-fg-muted: #4a5160;
-  --t-fg-subtle: #5b6270;
-  --t-line: #e4dfd3;
-  --t-line-strong: #cfc8b8;
-  --t-accent: #315d91;
-  --t-accent-hover: #284d79;
-  --t-accent-fg: #fcfaf6;
-  --t-accent-soft: #e6edf6;
-  --t-accent-text: #284d79;
-  --t-hero-from: #101d35;
-  --t-hero-to: #090b0f;
+  --t-surface-2: #f0ede4;
+  --t-fg: #0b0d10;
+  --t-fg-muted: #464a54;
+  --t-fg-subtle: #575c66;
+  --t-line: #e0dccf;
+  --t-line-strong: #c9c4b5;
+  --t-accent: #c8f031;
+  --t-accent-hover: #b8e21c;
+  --t-accent-fg: #0b0d10;
+  --t-accent-soft: #edf8cb;
+  --t-accent-text: #3a5400;
   --t-success: #1d6b45;
   --t-success-soft: #e3f3ea;
   --t-warning: #8a5a00;
@@ -44,39 +43,39 @@
   --t-danger-soft: #fdecea;
   --t-info: #1f5a99;
   --t-info-soft: #e5eef9;
-  --t-focus: #315d91;
-  --t-shadow-card: 0 1px 2px rgb(12 15 20 / 0.04), 0 4px 16px -6px rgb(12 15 20 / 0.08);
-  --t-shadow-raised: 0 2px 4px rgb(12 15 20 / 0.05), 0 16px 40px -12px rgb(12 15 20 / 0.18);
+  --t-focus: #3a5400;
+  --t-shadow-card: 0 1px 2px rgb(11 13 16 / 0.05), 0 8px 24px -12px rgb(11 13 16 / 0.12);
+  --t-shadow-raised: 0 2px 4px rgb(11 13 16 / 0.06), 0 24px 56px -18px rgb(11 13 16 / 0.28);
+  --t-glass: rgb(243 241 234 / 0.78);
 }
 
 [data-theme="dark"] {
-  --t-bg: #090b0f;
-  --t-bg-subtle: #0d1015;
-  --t-surface: #11151b;
-  --t-surface-2: #1a2029;
-  --t-fg: #f5f2ea;
-  --t-fg-muted: #b3b6bd;
-  --t-fg-subtle: #8d929c;
-  --t-line: #232a35;
-  --t-line-strong: #323b48;
-  --t-accent: #315d91;
-  --t-accent-hover: #3b6ca6;
-  --t-accent-fg: #fcfaf6;
-  --t-accent-soft: #14233c;
-  --t-accent-text: #9cbde6;
-  --t-hero-from: #101d35;
-  --t-hero-to: #090b0f;
+  --t-bg: #07080b;
+  --t-bg-subtle: #0b0d11;
+  --t-surface: #111419;
+  --t-surface-2: #191d24;
+  --t-fg: #f2f3ee;
+  --t-fg-muted: #b1b5bd;
+  --t-fg-subtle: #8f949e;
+  --t-line: #20252d;
+  --t-line-strong: #313844;
+  --t-accent: #c8f031;
+  --t-accent-hover: #d9ff57;
+  --t-accent-fg: #0b0d10;
+  --t-accent-soft: #1b2309;
+  --t-accent-text: #d4ff4a;
   --t-success: #6fcf97;
   --t-success-soft: #10261b;
   --t-warning: #f2c46d;
   --t-warning-soft: #2a2110;
   --t-danger: #ff8a80;
   --t-danger-soft: #2c1414;
-  --t-info: #8fb8ea;
-  --t-info-soft: #122239;
-  --t-focus: #9cbde6;
-  --t-shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.5);
-  --t-shadow-raised: 0 2px 6px rgb(0 0 0 / 0.35), 0 20px 48px -16px rgb(0 0 0 / 0.65);
+  --t-info: #8fd8f2;
+  --t-info-soft: #0f2430;
+  --t-focus: #d4ff4a;
+  --t-shadow-card: 0 1px 2px rgb(0 0 0 / 0.35), 0 10px 28px -14px rgb(0 0 0 / 0.6);
+  --t-shadow-raised: 0 2px 6px rgb(0 0 0 / 0.4), 0 28px 60px -20px rgb(0 0 0 / 0.75);
+  --t-glass: rgb(7 8 11 / 0.72);
 }
 
 @theme inline {
@@ -102,26 +101,32 @@
   --color-danger-soft: var(--t-danger-soft);
   --color-info: var(--t-info);
   --color-info-soft: var(--t-info-soft);
-  --color-ivory: var(--brand-ivory);
-  --color-ink: var(--brand-black);
-  --color-midnight: var(--brand-midnight);
+  --color-glass: var(--t-glass);
+  --color-ink: var(--brand-ink);
+  --color-ink-2: var(--brand-ink-2);
+  --color-lime: var(--brand-lime);
+  --color-lime-hi: var(--brand-lime-hi);
+  --color-cyan: var(--brand-cyan);
+  --color-paper: var(--brand-paper);
+  --color-ivory: var(--brand-white);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --shadow-card: var(--t-shadow-card);
   --shadow-raised: var(--t-shadow-raised);
-  --radius-card: 1.25rem;
+  --radius-card: 1.5rem;
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 5.5rem;
+    background-color: var(--t-bg);
   }
 
   body {
-    background-color: var(--t-bg);
     color: var(--t-fg);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -135,7 +140,7 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.035em;
     text-wrap: balance;
   }
 
@@ -144,14 +149,28 @@
   }
 
   ::selection {
-    background: var(--t-accent);
-    color: var(--t-accent-fg);
+    background: var(--brand-lime);
+    color: var(--brand-ink);
   }
 
   :focus-visible {
     outline: 2px solid var(--t-focus);
-    outline-offset: 2px;
-    border-radius: 0.5rem;
+    outline-offset: 3px;
+    border-radius: 0.6rem;
+  }
+
+  /*
+   * Capas de la cadena 3D: el lienzo fijo va en z-index 0. Las bandas oscuras ([data-band]) pintan su
+   * fondo debajo del lienzo y su contenido encima; el resto del contenido de la página va encima del
+   * lienzo, así la cadena pasa "por detrás" de textos y tarjetas.
+   */
+  main > :not([data-band]) {
+    position: relative;
+    z-index: 1;
+  }
+  [data-band] > :not([aria-hidden]) {
+    position: relative;
+    z-index: 1;
   }
 
   /* Evita el zoom automático de iOS al enfocar campos. */
@@ -186,9 +205,9 @@
   }
 }
 
-/* Espacio inferior para la navegación móvil + área segura del dispositivo. */
+/* Espacio inferior para el dock móvil + área segura del dispositivo. */
 @utility pb-mobile-nav {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
   @media (width >= 48rem) {
     padding-bottom: 0;
   }
@@ -214,10 +233,51 @@
   }
 }
 
+/* Vidrio esmerilado (encabezado, dock, paneles sobre la cadena). */
+@utility glass {
+  background-color: var(--t-glass);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+}
+
+/* Rótulo de sección: punto lima + texto en mayúsculas espaciadas. */
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  &::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--brand-lime);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand-lime) 22%, transparent);
+  }
+}
+
+/* Cuadrícula técnica tenue (fondos oscuros). */
+@utility grid-lines {
+  background-image:
+    linear-gradient(rgb(242 243 238 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(242 243 238 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Texto con contorno (marca gigante del pie). */
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: var(--t-line-strong);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -234,10 +294,44 @@
   }
 }
 
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand-lime) 55%, transparent);
+  }
+  60% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
 @utility animate-fade-up {
-  animation: fade-up 0.5s var(--ease-out-soft) both;
+  animation: fade-up 0.7s var(--ease-out-soft) both;
+}
+@utility animate-fade-up-2 {
+  animation: fade-up 0.7s var(--ease-out-soft) 0.1s both;
+}
+@utility animate-fade-up-3 {
+  animation: fade-up 0.7s var(--ease-out-soft) 0.2s both;
 }
 
 @utility animate-sheet-up {
   animation: sheet-up 0.32s var(--ease-out-soft) both;
+}
+
+@utility animate-marquee {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: marquee 38s linear infinite;
+  }
+}
+
+@utility animate-pulse-dot {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: pulse-dot 2.2s ease-out infinite;
+  }
 }

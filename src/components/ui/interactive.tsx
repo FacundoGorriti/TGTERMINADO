@@ -27,7 +27,7 @@ export function BackToTop() {
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
       className={cn(
-        "tap-target fixed right-4 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] z-30 grid place-items-center rounded-full border border-line bg-surface text-fg shadow-raised transition-[opacity,transform] duration-300 md:right-6 md:bottom-6",
+        "tap-target fixed right-4 bottom-[calc(6.25rem+env(safe-area-inset-bottom))] z-30 grid place-items-center rounded-full border border-line bg-surface text-fg shadow-raised transition-[opacity,transform] duration-300 md:right-6 md:bottom-6",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0",
       )}
     >

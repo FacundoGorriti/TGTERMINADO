@@ -12,15 +12,15 @@ export function BusinessCard({ business, priority = false, headingLevel = 3 }: {
     <article
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface shadow-card",
-        "transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-raised",
+        "transition-[border-color,transform,box-shadow] duration-300 ease-[var(--ease-out-soft)] hover:-translate-y-1 hover:border-accent hover:shadow-raised",
       )}
       data-testid="business-card"
     >
-      <div className="relative">
+      <div className="relative overflow-hidden [&_img]:transition-transform [&_img]:duration-700 [&_img]:ease-[var(--ease-out-soft)] group-hover:[&_img]:scale-[1.05]">
         {business.coverImage ? (
           <ResponsiveImage src={business.coverImage} alt="" ratio="16/9" priority={priority} />
         ) : (
-          <div aria-hidden className="aspect-video bg-gradient-to-br from-midnight to-ink" />
+          <div aria-hidden className="grid-lines aspect-video bg-ink" />
         )}
         <div className="absolute top-3 right-3 z-10">
           <FavoriteButton slug={business.slug} name={business.name} />
@@ -28,21 +28,21 @@ export function BusinessCard({ business, priority = false, headingLevel = 3 }: {
         {business.demo && <DemoBadge className="absolute top-3 left-3 z-10" />}
       </div>
 
-      <div className="flex flex-1 flex-col p-4 sm:p-5">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="relative z-[1] -mt-11 mb-3 flex items-end gap-3 pointer-events-none">
           {business.logo ? (
-            <span className="relative size-14 shrink-0 overflow-hidden rounded-2xl border-2 border-surface bg-surface shadow-card">
+            <span className="relative size-16 shrink-0 overflow-hidden rounded-2xl border-[3px] border-surface bg-surface shadow-raised transition-transform duration-300 group-hover:-rotate-3">
               <Image src={business.logo} alt="" fill sizes="56px" className="object-cover" />
             </span>
           ) : (
-            <span aria-hidden className="grid size-14 shrink-0 place-items-center rounded-2xl border-2 border-surface bg-accent font-display text-lg font-bold text-accent-fg">
+            <span aria-hidden className="grid size-16 shrink-0 place-items-center rounded-2xl border-[3px] border-surface bg-accent font-display text-lg font-bold text-accent-fg">
               {business.name.charAt(0)}
             </span>
           )}
         </div>
 
-        <p className="text-xs font-semibold tracking-wide text-accent-text uppercase">{business.subcategoryName}</p>
-        <Heading className="mt-1 text-lg leading-snug font-semibold text-fg">
+        <p className="text-[0.7rem] font-bold tracking-[0.16em] text-fg-subtle uppercase">{business.subcategoryName}</p>
+        <Heading className="mt-1.5 font-display text-xl leading-tight font-bold text-fg">
           {/* Abre la web propia del negocio en la misma pestaña. */}
           <a href={business.websiteUrl} className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none" data-testid="business-link">
             {business.name}
@@ -57,9 +57,11 @@ export function BusinessCard({ business, priority = false, headingLevel = 3 }: {
             {business.city}
           </Badge>
           {business.featured && <Badge tone="neutral">Destacado</Badge>}
-          <span aria-hidden className="ml-auto inline-flex items-center gap-1 text-sm font-semibold text-accent-text transition-transform duration-200 group-hover:translate-x-0.5">
+          <span aria-hidden className="ml-auto inline-flex min-h-9 items-center gap-1.5 rounded-full bg-ink pr-1.5 pl-3.5 text-sm font-semibold text-ivory transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-fg dark:bg-surface-2">
             Ver la web
-            <ArrowUpRight className="size-4" />
+            <span className="grid size-6 place-items-center rounded-full bg-lime text-ink transition-transform duration-300 group-hover:rotate-45">
+              <ArrowUpRight className="size-3.5" />
+            </span>
           </span>
         </div>
       </div>

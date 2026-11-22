@@ -20,12 +20,10 @@ export function SectionHeading({
   as?: "h1" | "h2";
 }) {
   return (
-    <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+    <div className="mb-7 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
       <div className="max-w-2xl">
-        {eyebrow && (
-          <p className="mb-2 text-xs font-semibold tracking-[0.16em] text-accent-text uppercase">{eyebrow}</p>
-        )}
-        <Tag id={id} className={cn("font-bold text-fg", Tag === "h1" ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl")}>
+        {eyebrow && <p className="eyebrow mb-3 text-fg-muted">{eyebrow}</p>}
+        <Tag id={id} className={cn("font-extrabold text-fg", Tag === "h1" ? "text-3xl sm:text-5xl" : "text-[1.75rem] leading-[1.05] sm:text-5xl")}>
           {title}
         </Tag>
         {description && <p className="mt-2 text-base text-fg-muted">{description}</p>}
@@ -33,10 +31,12 @@ export function SectionHeading({
       {action && (
         <Link
           href={action.href}
-          className="group inline-flex min-h-11 shrink-0 items-center gap-1.5 self-start text-sm font-semibold text-accent-text hover:underline sm:self-auto"
+          className="group inline-flex min-h-11 shrink-0 items-center gap-2 self-start rounded-full border border-line-strong bg-surface px-4 text-sm font-semibold text-fg transition-colors hover:border-fg sm:self-auto"
         >
           {action.label}
-          <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-0.5" />
+          <span className="grid size-6 place-items-center rounded-full bg-accent text-accent-fg transition-transform group-hover:translate-x-0.5">
+            <ArrowRight aria-hidden className="size-3.5" />
+          </span>
         </Link>
       )}
     </div>
@@ -135,12 +135,14 @@ export function DemoBadge({ className }: { className?: string }) {
 
 export function PageHeader({ eyebrow, title, description, children }: { eyebrow?: string; title: string; description?: string; children?: ReactNode }) {
   return (
-    <header className="border-b border-line bg-bg-subtle">
-      <div className="container-page py-8 sm:py-12">
+    <header data-band data-theme="dark" data-chain-light="white" className="relative overflow-hidden bg-ink text-fg">
+      <div aria-hidden className="grid-lines pointer-events-none absolute inset-0 [mask-image:radial-gradient(90%_100%_at_20%_0%,black,transparent)]" />
+      <div aria-hidden className="pointer-events-none absolute -top-32 -left-24 size-96 rounded-full bg-lime/12 blur-[100px]" />
+      <div className="container-page py-10 sm:py-16">
         {children}
-        {eyebrow && <p className="mb-2 text-xs font-semibold tracking-[0.16em] text-accent-text uppercase">{eyebrow}</p>}
-        <h1 className="text-3xl font-bold text-fg sm:text-4xl lg:text-5xl">{title}</h1>
-        {description && <p className="mt-3 max-w-2xl text-base text-fg-muted sm:text-lg">{description}</p>}
+        {eyebrow && <p className="eyebrow mb-4 text-fg-muted">{eyebrow}</p>}
+        <h1 className="text-[clamp(2.1rem,8vw,4.2rem)] leading-[1] font-extrabold text-fg">{title}</h1>
+        {description && <p className="mt-4 max-w-2xl text-base text-fg-muted sm:text-lg">{description}</p>}
       </div>
     </header>
   );

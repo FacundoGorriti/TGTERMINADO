@@ -84,6 +84,20 @@ Negocios publicados:
 - **Tanito** (hamburguesería) → https://tanito26.vercel.app/
 - **mc Marito Pizzería** → https://mcmarito.vercel.app/
 
+## Marca y diseño
+
+- **Concepto:** "Tu ciudad, conectada." Cada negocio es un eslabón de la cadena.
+- **Isotipo:** dos eslabones entrelazados en verde lima sobre negro tinta ([`public/branding/isotipo.svg`](public/branding/isotipo.svg)).
+  Logotipo: "TARTAGAL" + "GO" en píldora lima. Íconos e imagen Open Graph: `node scripts/generate-brand-assets.mjs`.
+- **Colores:** negro tinta `#07080b`, lima "GO" `#c8f031` y cian `#50dcff` (luz secundaria); claro sobre papel `#f3f1ea`.
+- **Tipografía:** Unbounded (títulos) e Inter (texto).
+- **Cadena 3D** ([`src/lib/three/chain.ts`](src/lib/three/chain.ts)): eslabones cromados (`TorusGeometry` estirado, un
+  `InstancedMesh`, cromo por matcap) sobre una `CatmullRomCurve3`. El scroll la desliza y el cromo se tiñe según la
+  sección (`data-chain-light="white|lime|cyan"`). Se descarga después de cargar la página; queda quieta con "reducir
+  movimiento", usa un modo liviano sin GPU y no se monta en navegadores automatizados (pruebas).
+- **Capas:** las bandas oscuras llevan `data-band` (su fondo queda debajo de la cadena y su contenido encima); el resto
+  del contenido de `<main>` va siempre por encima de la cadena.
+
 ## Documentación
 
 - [docs/ADDING_BUSINESSES.md](docs/ADDING_BUSINESSES.md) — agregar comercios paso a paso

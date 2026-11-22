@@ -43,8 +43,10 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      <header className="border-b border-line bg-bg-subtle">
-        <div className="container-page py-8 sm:py-12">
+      <header data-band data-theme="dark" data-chain-light="lime" className="relative overflow-hidden bg-ink text-fg">
+        <div aria-hidden className="grid-lines pointer-events-none absolute inset-0 [mask-image:radial-gradient(90%_100%_at_20%_0%,black,transparent)]" />
+        <div aria-hidden className="pointer-events-none absolute -top-32 -left-24 size-96 rounded-full bg-lime/12 blur-[100px]" />
+        <div className="container-page py-10 sm:py-16">
           <Breadcrumbs
             items={[
               { name: "Categorías", path: "/categorias/" },
@@ -56,7 +58,7 @@ export default async function CategoryPage({ params }: Props) {
               <CategoryIcon name={category.icon} className="size-7" />
             </span>
             <div>
-              <h1 className="text-3xl font-bold text-fg sm:text-4xl">{category.name}</h1>
+              <h1 className="text-[clamp(2rem,7.5vw,3.8rem)] leading-[1] font-extrabold text-fg">{category.name}</h1>
               <p className="mt-2 max-w-2xl text-fg-muted">{category.description}</p>
               <p className="mt-2 text-sm font-semibold text-fg-subtle">{pluralize(businesses.length, "negocio publicado", "negocios publicados")}</p>
             </div>
@@ -69,7 +71,7 @@ export default async function CategoryPage({ params }: Props) {
                 <li key={s.id}>
                   <a
                     href={`/categorias/${category.id}/?sub=${s.id}`}
-                    className="inline-flex min-h-9 items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 text-sm text-fg-muted hover:border-accent hover:text-fg"
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-line-strong bg-surface/60 px-3.5 text-sm text-fg-muted backdrop-blur transition-colors hover:border-lime hover:text-fg"
                   >
                     {s.name}
                     <span className="text-xs text-fg-subtle tabular-nums">{subCounts[s.id] ?? 0}</span>
