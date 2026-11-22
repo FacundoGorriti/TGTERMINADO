@@ -82,6 +82,7 @@ Negocios publicados:
 
 - **Sandwichería Abi** → https://sandwicheriaaby2000.vercel.app/
 - **Tanito** (hamburguesería) → https://tanito26.vercel.app/
+- **mc Marito Pizzería** → https://mcmarito.vercel.app/
 
 ## Documentación
 

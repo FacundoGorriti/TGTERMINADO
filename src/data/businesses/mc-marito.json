@@ -1,0 +1,29 @@
+{
+  "id": "neg-mc-marito",
+  "slug": "mc-marito",
+  "name": "mc Marito Pizzería",
+  "categoryId": "gastronomia",
+  "subcategoryId": "pizzerias",
+  "shortDescription": "Buena pizza, buenos momentos: pizzas enteras o pizzetas, sándwiches, especiales y panchos. Pedí por WhatsApp.",
+  "description": "Pizzería de Tartagal con 19 variedades de pizza, todas también en pizzeta individual de 400 g, además de sándwiches, especiales y panchos. Desde su web se arma el pedido, se eligen los aderezos y se envía por WhatsApp al local.",
+  "logo": "/images/negocios/mc-marito/logo.webp",
+  "coverImage": "/images/negocios/mc-marito/portada.webp",
+  "gallery": [],
+  "city": "Tartagal",
+  "province": "Salta",
+  "whatsapp": "5493873606108",
+  "websiteUrl": "https://mcmarito.vercel.app/",
+  "instagramUrl": "https://www.instagram.com/mc_marito5/",
+  "openingHours": [],
+  "features": ["Pedidos por WhatsApp", "Pizzetas de 400 g"],
+  "keywords": ["pizza", "pizzas", "pizzeria", "pizzeta", "muzzarella", "fugazzeta", "napolitana", "sandwich", "pancho", "panchos", "comida", "delivery", "marito"],
+  "attributes": {
+    "cuisine": "Pizzas, sándwiches y panchos",
+    "menuUrl": "https://mcmarito.vercel.app/#carta"
+  },
+  "featured": true,
+  "publishedAt": "2026-11-21",
+  "updatedAt": "2026-11-21",
+  "status": "published",
+  "demo": false
+}

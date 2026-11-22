@@ -73,6 +73,12 @@ test.describe("tarjeta de negocio", () => {
     await expect(link).toHaveAttribute("href", "https://tanito26.vercel.app/");
   });
 
+  test("la tarjeta de mc Marito abre su web", async ({ page }) => {
+    await page.goto("/explorar/");
+    const link = page.getByTestId("business-card").filter({ hasText: "mc Marito" }).getByTestId("business-link");
+    await expect(link).toHaveAttribute("href", "https://mcmarito.vercel.app/");
+  });
+
   test("ya no existen fichas internas de negocio", async ({ page }) => {
     const res = await page.goto("/negocios/sandwicheria-abi/");
     expect(res?.status()).toBe(404);
@@ -106,7 +112,7 @@ test.describe("seguridad", () => {
     expect(meta).toMatch(/script-src 'self' 'sha256-/);
     expect(meta).not.toMatch(/script-src[^;]*'unsafe-(inline|eval)'/);
 
-    await page.getByRole("searchbox").fill("pizza");
+    await page.getByRole("searchbox").fill("pizzeta");
     await expect(page.getByTestId("business-card")).toHaveCount(1);
     expect(consoleErrors.filter((e) => /Content Security Policy|Refused to/i.test(e))).toEqual([]);
     expect(consoleErrors).toEqual([]);
@@ -116,7 +122,7 @@ test.describe("seguridad", () => {
     await page.goto("/categorias/");
     await page.getByRole("link", { name: /Gastronomía/ }).first().click();
     await expect(page.getByRole("heading", { level: 1, name: "Gastronomía" })).toBeVisible();
-    await expect(page.getByTestId("business-card").first()).toContainText("Sandwichería Abi");
+    await expect(page.getByTestId("business-card")).toHaveCount(3);
     await page.getByRole("link", { name: "Explorar" }).first().click();
     await expect(page).toHaveURL(/\/explorar\//);
     expect(consoleErrors).toEqual([]);
