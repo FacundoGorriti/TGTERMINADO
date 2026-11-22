@@ -78,7 +78,10 @@ Cada negocio del directorio tiene **su propia web** (por ejemplo, una carta con 
 dominio en Vercel. En TARTAGAL GO, la tarjeta del negocio abre esa web **en la misma pestaña**; no hay fichas internas.
 Por eso `websiteUrl` es obligatorio en cada archivo de `src/data/businesses/`.
 
-Negocios publicados: **Sandwichería Abi** → https://sandwicheriaaby2000.vercel.app/
+Negocios publicados:
+
+- **Sandwichería Abi** → https://sandwicheriaaby2000.vercel.app/
+- **Tanito** (hamburguesería) → https://tanito26.vercel.app/
 
 ## Documentación
 

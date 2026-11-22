@@ -1,0 +1,29 @@
+{
+  "id": "neg-tanito",
+  "slug": "tanito",
+  "name": "Tanito",
+  "categoryId": "gastronomia",
+  "subcategoryId": "hamburgueserias",
+  "shortDescription": "Hamburguesas de medallón de carne en simple, doble o triple. Armá tu pedido y envialo por WhatsApp.",
+  "description": "Hamburguesería de Tartagal con hamburguesas de medallón de carne en simple, doble o triple: Bambini, Cheddar, Classic, Bacon, Tanito, Blu, Chessa Nostra y Cheese. Desde su web se elige el tamaño, se arma el pedido y se envía por WhatsApp al local.",
+  "logo": "/images/negocios/tanito/logo.webp",
+  "coverImage": "/images/negocios/tanito/portada.webp",
+  "gallery": [],
+  "city": "Tartagal",
+  "province": "Salta",
+  "whatsapp": "5493873535343",
+  "websiteUrl": "https://tanito26.vercel.app/",
+  "instagramUrl": "https://www.instagram.com/tanito464/",
+  "openingHours": [],
+  "features": ["Pedidos por WhatsApp", "Simple, doble o triple"],
+  "keywords": ["hamburguesa", "hamburguesas", "hamburgueseria", "burger", "cheddar", "bacon", "medallon", "doble", "triple", "comida", "delivery"],
+  "attributes": {
+    "cuisine": "Hamburguesas",
+    "menuUrl": "https://tanito26.vercel.app/#carta"
+  },
+  "featured": true,
+  "publishedAt": "2026-11-21",
+  "updatedAt": "2026-11-21",
+  "status": "published",
+  "demo": false
+}

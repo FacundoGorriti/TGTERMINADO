@@ -24,6 +24,11 @@ test.describe("búsqueda y filtros", () => {
     await expect(page).not.toHaveURL(/q=/);
   });
 
+  test("busca por lo que vende cada negocio", async ({ page }) => {
+    await page.goto("/explorar/?q=hamburguesa%20triple");
+    await expect(page.getByTestId("business-card").first()).toContainText("Tanito");
+  });
+
   test("estado sin resultados y recuperación", async ({ page }) => {
     await page.goto("/explorar/?q=zzzzqqq");
     await expect(page.getByText("No encontramos negocios con esos criterios")).toBeVisible();
@@ -45,7 +50,7 @@ test.describe("búsqueda y filtros", () => {
     await expect(page.getByTestId("business-card")).toHaveCount(0);
     await expect(page).toHaveURL(/cat=hoteleria-y-turismo/);
     await scope.getByRole("button", { name: "Gastronomía" }).click();
-    await expect(page.getByTestId("business-card")).toHaveCount(1);
+    await expect(page.getByTestId("business-card")).toHaveCount(2);
   });
 
   test("filtros móviles en panel inferior accesible", async ({ page }) => {

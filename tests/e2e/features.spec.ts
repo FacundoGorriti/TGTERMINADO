@@ -59,12 +59,18 @@ test.describe("tarjeta de negocio", () => {
       route.fulfill({ status: 200, contentType: "text/html", body: "<title>Abi</title>" }),
     );
     await page.goto("/explorar/");
-    const link = page.getByTestId("business-card").first().getByTestId("business-link");
+    const link = page.getByTestId("business-card").filter({ hasText: "Sandwichería Abi" }).getByTestId("business-link");
     await expect(link).toHaveAttribute("href", "https://sandwicheriaaby2000.vercel.app/");
     expect(await link.getAttribute("target")).toBeNull();
     await link.click();
     await expect(page).toHaveURL("https://sandwicheriaaby2000.vercel.app/");
     expect(page.context().pages()).toHaveLength(1);
+  });
+
+  test("la tarjeta de Tanito abre su web", async ({ page }) => {
+    await page.goto("/explorar/");
+    const link = page.getByTestId("business-card").filter({ hasText: "Tanito" }).getByTestId("business-link");
+    await expect(link).toHaveAttribute("href", "https://tanito26.vercel.app/");
   });
 
   test("ya no existen fichas internas de negocio", async ({ page }) => {
